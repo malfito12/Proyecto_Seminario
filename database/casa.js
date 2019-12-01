@@ -6,20 +6,20 @@ var USERCASA = {
     //codigo_inmoviliaria: Number,
     //status:String,
     //tipo_terreno:String,
-    oferta:String,
-    estado:String,
+    //oferta:String,+
+    //estado:String,+
     //id_ciudad:Number,
     //id_tipo_inmueble:Number,
     //id_tipo_oferta:Number,
-    region:String,
-    ubicacion:String,
+    //region:String,+
+    //ubicacion:String,+
     zona:String,
     //id_zona:Number,
     direccion:String,
     //moneda:String,
     precio:Number,
     descripsion:String,
-    face_entrega:String,
+    //face_entrega:String,+
     //supterreno:String,
     servicios:String,
     amurallado:String,

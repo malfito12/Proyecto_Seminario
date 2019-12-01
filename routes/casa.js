@@ -11,4 +11,16 @@ router.post("/casa", (req, res, next)=>{
         res.status(300).json(params);
     });
 });
+
+router.get('/casa', (req, res, next)=>{
+    CASA.find({}, (err, docs)=>{
+        if(err){
+            res.status(300).json({
+                "msn": "error en la base de datos"
+            });
+            return;
+        }
+        res.status(300).json(docs);
+    });
+});
 module.exports = router;
