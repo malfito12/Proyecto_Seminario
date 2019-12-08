@@ -5,6 +5,27 @@ var cryto = require("crypto");
 var jwt = require("jsonwebtoken");
 const keycypher ="password123456";
 
+function verytoken(req, res, next){
+    //recibir token
+    const header = req.headers["authorization"];
+    if(header == null){
+        res.status(300).json({
+            "msn": "no tienes permiso"
+        });
+        return;
+    }
+    req.token= header;
+    jwt.verify(req.token, keycypher, (err, authData)=>{
+        if(err){
+            res.status(403).json({
+                "msn": "token incorrecto"
+            });
+            return;
+        }
+        res.status(300).json(authData);
+    });
+}
+
 router.post("/user", (req, res, next)=>{
     var params = req.body;
     params["registerdate"]= new Date();
@@ -54,7 +75,7 @@ router.post("/login", (req, res, next)=>{
     });
 });
 
-router.get('/user', (req, res, next)=>{
+router.get('/user', verytoken , (req, res, next)=>{
     USER.find({}, (err, docs)=>{
         if(err){
             res.status(300).json({
