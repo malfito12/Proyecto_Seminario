@@ -1,10 +1,12 @@
 var mongoose = require("./connect");
 var USERSCHEMA = {
-    usermane: String,
+    username: String,
     password: String,
     email:String,
-    sexo:String,
-    registerdate:Date
+    edad:String,
+    //sexo:String,
+    registerdate:Date,
+    rol:String
 };
 const USER = mongoose.model("user", USERSCHEMA);
 module.exports = USER;
